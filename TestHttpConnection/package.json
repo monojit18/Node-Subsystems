@@ -1,0 +1,24 @@
+{
+  "name": "testhttpconnection",
+  "version": "1.0.0",
+  "description": "Test HttpConnection component",
+  "main": "testhttpconnection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm install --save-dev --unsafe-perm express body-parser request stream-buffers url",
+    "start": "node testhttpconnection.js 1> logs/testhttpconnection.log 2>& 1"
+  },
+  "keywords": [
+    "Http",
+    "Https"
+  ],
+  "author": "Monojit Datta",
+  "license": "MIT",
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "request": "^2.87.0",
+    "stream-buffers": "^3.0.2",
+    "url": "^0.11.0"
+  }
+}
