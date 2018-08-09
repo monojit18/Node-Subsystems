@@ -22,8 +22,11 @@ _express.get('/', (req, res) =>
 _express.get('/getTest', (req, res) =>
 {
     
-    var proxy = (new CMPHttpConnectionProxy()).url("https://jsonplaceholder.typicode.com/todos/10")
-                                              .build();
+//    var proxy = (new CMPHttpConnectionProxy()).url("https://jsonplaceholder.typicode.com/todos/10")
+//                                              .build();
+    
+    var headers = {"Ocp-Apim-Subscription-Key" : "53e8a0d56803437894ad3eccf6145a16"}
+    var proxy = (new CMPHttpConnectionProxy()).url("https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,transliteration,dictionary").headers(headers).build();
     
     proxy.getAsync((response) =>
     {
@@ -37,15 +40,17 @@ _express.get('/getTest', (req, res) =>
 
 _express.post('/postTest', (req, res) =>
 {
+        
+    var body = [{"Text" : "This is a Test Translation"}]
+    var headers = {"Ocp-Apim-Subscription-Key" : "53e8a0d56803437894ad3eccf6145a16"}
     
-    var proxy = (new CMPHttpConnectionProxy()).url("https://jsonplaceholder.typicode.com/posts")
-                                              .build();
+    var proxy = (new CMPHttpConnectionProxy()).url("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=hi").jsonBody(body).headers(headers).build();
     
     proxy.postAsync((response) =>
     {
         
-        console.log(response);
-        res.send(response.response);    
+        console.log(JSON.stringify(response.response));
+        res.send(response.response);
         
     });
     

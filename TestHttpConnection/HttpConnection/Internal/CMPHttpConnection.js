@@ -82,9 +82,10 @@ class CMPHttpConnection
                         return;
                     
                     this.requestOptions.body = this.bodyDictionary;
-                    this.requestOptions.json = true;
+                    this.requestOptions.json = true;                    
 
                 }
+                    break;
                 
                 case CMPHttpConstants.ContentTypeEnum.KXXXUrlEncoded:
                 {
@@ -95,14 +96,16 @@ class CMPHttpConnection
                     this.requestOptions.form = this.bodyDictionary;
                     
                 }
+                    break;
                 
                 case CMPHttpConstants.ContentTypeEnum.KByteArrayData:
                 {
                     
                     var byteBuffer = Buffer.from(this.byteArray);
-                    this.requestOptions.body = byteBuffer;
-                    
+                    this.requestOptions.body = byteBuffer;                    
                 }
+                    break;
+                    
 //                case CMPHttpConstants.ContentTypeEnum.KMultipartFormData:
 //                {
 //                    return ("multipart/form-data");
@@ -189,7 +192,7 @@ class CMPHttpConnection
          if (this.isValidNonEmptyDictionary(headersDictionary) === false)
             return this;
         
-        this.headersDctionary = JSON.parse(JSON.stringify(headersDictionary)); 
+        this.headersDictionary = JSON.parse(JSON.stringify(headersDictionary)); 
         return this;
         
     };

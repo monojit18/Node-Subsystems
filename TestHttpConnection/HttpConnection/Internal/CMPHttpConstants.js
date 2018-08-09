@@ -1,4 +1,4 @@
-const KContentType = "content-type";
+const KContentType = "Content-Type";
 
 const ContentTypeEnum =
 {
