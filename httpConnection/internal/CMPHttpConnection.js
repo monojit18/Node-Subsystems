@@ -2,7 +2,7 @@
 
 const HttpsClient = require("../node_modules/request");
 const CMPHttpConstants = require("./CMPHttpConstants");
-const CMPHttpResponse = require("../external/CMPHttpResponse");
+const CMPHttpResponse = require("../internal/CMPHttpResponse");
 
 class CMPHttpConnection
 {
