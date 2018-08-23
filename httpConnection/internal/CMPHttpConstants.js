@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 const KContentType = "Content-Type";
 
 const ContentTypeEnum =
@@ -17,7 +19,8 @@ const HttpMethod =
     get     : "GET",
     post    : "POST",
     put     : "PUT",
-    delete  : "DELETE"
+    patch   : "PATCH",
+    delete  : "DELETE"    
 
 };
 

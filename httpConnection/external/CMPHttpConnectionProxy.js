@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 const CMPHttpConnection = require("../internal/CMPHttpConnection");
 
 class CMPHttpConnectionProxy
@@ -17,7 +19,7 @@ class CMPHttpConnectionProxy
         this.httpConnection.url(urlString);
         return this;
 
-    };
+    }
 
     query(queryDictionary)
     {
@@ -25,7 +27,7 @@ class CMPHttpConnectionProxy
         this.httpConnection.query(queryDictionary);
         return this;
 
-    };
+    }
 
     headers(headersDictionary)
     {
@@ -33,7 +35,7 @@ class CMPHttpConnectionProxy
         this.httpConnection.headers(headersDictionary);
         return this;
 
-    };
+    }
 
     jsonBody(bodyDictionary)
     {
@@ -41,7 +43,7 @@ class CMPHttpConnectionProxy
         this.httpConnection.jsonBody(bodyDictionary);
         return this;
 
-    };
+    }
 
     urlEncodedBody(bodyDictionary)
     {
@@ -49,7 +51,7 @@ class CMPHttpConnectionProxy
         this.httpConnection.urlEncodedBody(bodyDictionary);
         return this;
 
-    };
+    }
     
     byteArrayBody(byteArray)
     {
@@ -57,7 +59,7 @@ class CMPHttpConnectionProxy
         this.httpConnection.byteArrayBody(byteArray);
         return this;
 
-    };
+    }
 
     build()
     {
@@ -65,35 +67,42 @@ class CMPHttpConnectionProxy
         this.httpConnection.build();
         return this;
 
-    };
+    }
     
     getAsync(responseCallback)
     {
 
         this.httpConnection.getAsync(responseCallback);
 
-    };
+    }
 
     postAsync(responseCallback)
     {
 
        this.httpConnection.postAsync(responseCallback);
 
-    };
+    }
     
     putAsync(responseCallback)
     {
 
        this.httpConnection.putAsync(responseCallback);
 
-    };
+    }
+    
+    patchAsync(responseCallback)
+    {
+
+        this.httpConnection.patchAsync(responseCallback);
+
+    }
     
     deleteAsync(responseCallback)
     {
 
        this.httpConnection.deleteAsync(responseCallback);
 
-    };
+    }
 
 }
 

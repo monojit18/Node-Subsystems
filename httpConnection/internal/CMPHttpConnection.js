@@ -1,8 +1,8 @@
-const HttpsClient = require("../../node_modules/request");
-const Url = require("../../node_modules/url");
-const StreamBuffers = require("../../node_modules/stream-buffers");
+/* jshint esversion: 6 */
+
+const HttpsClient = require("../node_modules/request");
 const CMPHttpConstants = require("./CMPHttpConstants");
-const CMPHttpResponse = require("./CMPHttpResponse");
+const CMPHttpResponse = require("../external/CMPHttpResponse");
 
 class CMPHttpConnection
 {
@@ -12,6 +12,7 @@ class CMPHttpConnection
         
         let _self = this;
         
+        _self.httpsClient = HttpsClient;
         this.urlString = null;
         this.byteArray = [];
         this.queryDictionary = {};
@@ -117,10 +118,8 @@ class CMPHttpConnection
         
         this.prepareResponse = function(response, responseBody)
         {
-
-            let httpResponse = new CMPHttpResponse(responseBody,
-                                                   response.statusCode,
-                                                   response.statusMessage);
+            
+            let httpResponse = new CMPHttpResponse(responseBody, response, null);
             return httpResponse;        
 
         };
@@ -128,7 +127,7 @@ class CMPHttpConnection
         this.prepareError = function(error)
         {
 
-            let httpResponse = new CMPHttpResponse(null, -1, error);
+            let httpResponse = new CMPHttpResponse(null, null, error);
             return httpResponse; 
 
         };
@@ -139,7 +138,7 @@ class CMPHttpConnection
             try
             {
 
-                HttpsClient(this.requestOptions, function(error, response, responseBody)
+                _self.httpsClient(this.requestOptions, function(error, response, responseBody)
                 {
 
                     var httpResponse = null;
@@ -173,7 +172,7 @@ class CMPHttpConnection
         this.urlString = urlString.slice(0);
         return this;
         
-    };
+    }
     
     query(queryDictionary)
     {
@@ -184,7 +183,7 @@ class CMPHttpConnection
         this.queryDictionary = JSON.parse(JSON.stringify(queryDictionary)); 
         return this;
         
-    };
+    }
     
     headers(headersDictionary)
     {
@@ -195,7 +194,7 @@ class CMPHttpConnection
         this.headersDictionary = JSON.parse(JSON.stringify(headersDictionary)); 
         return this;
         
-    };
+    }
     
     jsonBody(bodyDictionary)
     {
@@ -206,25 +205,25 @@ class CMPHttpConnection
         this.bodyDictionary = JSON.parse(JSON.stringify(bodyDictionary));
         return this;
       
-    };
+    }
     
     urlEncodedBody(bodyDictionary)
     {
 
-        this.contentTypeEnum = ContentTypeEnum.KXXXUrlEncoded;        
+        this.contentTypeEnum = CMPHttpConstants.ContentTypeEnum.KXXXUrlEncoded;        
         this.jsonBody(bodyDictionary);
         return this;
 
-    };
+    }
     
     byteArrayBody(byteArray)
     {
 
-        this.contentTypeEnum = ContentTypeEnum.KByteArrayData;        
+        this.contentTypeEnum = CMPHttpConstants.ContentTypeEnum.KByteArrayData;        
         this.byteArray = byteArray.slice();        
         return this;
 
-    };
+    }
     
     build()
     {
@@ -236,7 +235,7 @@ class CMPHttpConnection
         this.requestOptions.qs = this.queryDictionary;
         this.requestOptions.headers = this.headersDictionary;
                 
-    };
+    }
     
     getAsync(responseCallback)
     {
@@ -244,25 +243,34 @@ class CMPHttpConnection
         this.requestOptions.method = CMPHttpConstants.HttpMethod.get;
         this.performAsync(responseCallback);
 
-    };
+    }
     
     postAsync(responseCallback)
     {
 
         this.requestOptions.method = CMPHttpConstants.HttpMethod.post;
         this.prepareContent();
-        this.performAsync(responseCallback);        
+        this.performAsync(responseCallback);
 
-    };
+    }
     
     putAsync(responseCallback)
     {
 
         this.requestOptions.method = CMPHttpConstants.HttpMethod.put;
         this.prepareContent();
-        this.performAsync(responseCallback);        
+        this.performAsync(responseCallback);
 
-    };
+    }
+    
+    patchAsync(responseCallback)
+    {
+
+        this.requestOptions.method = CMPHttpConstants.HttpMethod.patch;
+        this.prepareContent();
+        this.performAsync(responseCallback);
+
+    }
     
     deleteAsync(responseCallback)
     {
@@ -271,7 +279,7 @@ class CMPHttpConnection
         this.prepareContent();
         this.performAsync(responseCallback);        
 
-    };
+    }
     
 }
 
