@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "httpConnection"
+		},
+		{
+			"path": "Utilities"
 		}
 	],
 	"settings": {}

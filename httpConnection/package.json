@@ -1,7 +1,7 @@
 {
   "name": "https_connection_binder",
   "version": "1.0.1",
-  "description": "HttpConnection component",
+  "description": "HttpConnection binder component for popular request npm package",
   "main": "external/CMPHttpConnectionProxy.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
