@@ -1,6 +1,6 @@
 {
-  "name": "httpconnection",
-  "version": "1.0.0",
+  "name": "https_connection_binder",
+  "version": "1.0.1",
   "description": "HttpConnection component",
   "main": "external/CMPHttpConnectionProxy.js",
   "scripts": {
@@ -12,5 +12,8 @@
     "Https"
   ],
   "author": "Monojit Datta",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
 }
