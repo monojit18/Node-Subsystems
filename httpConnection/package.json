@@ -5,7 +5,7 @@
   "main": "external/CMPHttpConnectionProxy.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "npm install --save-dev --unsafe-perm request"
+    "install": "npm install --save --unsafe-perm request"
   },
   "keywords": [
     "Http",
@@ -13,7 +13,7 @@
   ],
   "author": "Monojit Datta",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "request": "^2.88.0"
   }
 }
