@@ -1,0 +1,23 @@
+{
+  "name": "azure_qnamaker_binder",
+  "version": "1.0.0",
+  "description": "QNMaker binder component",
+  "author": "Monojit Datta",
+  "license": "MIT",
+  "main": "external/CMPQnAMakerBinderProxy.js",
+  "contributors": [
+    {
+      "name": "Monojit Datta",
+      "email": "monojit.datta@yahoo.in"
+    }
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Azure"
+  ],
+  "engines": {
+    "node": ">=8.9.3"
+  }
+}
