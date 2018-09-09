@@ -13,13 +13,6 @@ class CMPQnAMakerBinderProxy
         
     }
 
-    checkStatusAsync(kbIdString, responseCallback)
-    {
-
-        this.qnaMakerBinder.checkStatusAsync(kbIdString, responseCallback);
-
-    }
-
     createKnowledgeBaseAsync(requestBody, responseCallback)
     {
 
@@ -118,11 +111,18 @@ class CMPQnAMakerBinderProxy
 
     }
 
-    deleteKnowledgeBaseAsync(keyTypeString, requestBody, responseCallback)
+    deleteKnowledgeBaseAsync(keyTypeString, responseCallback)
     {
         
-        this.qnaMakerBinder.deleteKnowledgeBaseAsync(keyTypeString, requestBody,
+        this.qnaMakerBinder.deleteKnowledgeBaseAsync(keyTypeString,
                                                         responseCallback);
+
+    }
+
+    deleteAllKnowledgeBasesAsync(responseCallback)
+    {
+        
+        this.qnaMakerBinder.deleteAllKnowledgeBasesAsync(responseCallback);
 
     }
     

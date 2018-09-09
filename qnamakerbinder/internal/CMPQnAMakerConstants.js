@@ -31,12 +31,11 @@ const QnAMakerURLs =
 {
 
     KCreateKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create",
-    KCheckStatus : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/{0}",
-    KCheckStatusLoop : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/",
+    KCheckStatusLoop : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0",
     KGetKnowledgeBaseDetails : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}",
-    KGetKnowledgeBasesForUser : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases",    
+    KGetKnowledgeBasesForUser : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases", 
     KGetEndpointKeys : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/endpointkeys",
-    KOperationDetails : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/{0}",    
+    KGetOperationDetails : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/{0}",
     KDownloadAlterations : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/alterations",
     KDownloadKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}/{1}/qna",
     KPublishKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}",
@@ -44,7 +43,7 @@ const QnAMakerURLs =
     KReplaceAlterations : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/alterations",
     KReplaceKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}",
     KUpdateKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}",
-    KDeleteKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}"    
+    KDeleteKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}"  
     
 };
 

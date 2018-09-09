@@ -1,7 +1,8 @@
 /*jshint esversion: 6 */
 
 const CMPQnAMakerConstants = require("./CMPQnAMakerConstants");
-const HttpConnectionRef = require("../node_modules/https_connection_binder");
+const Semaphore = require("../node_modules/semaphore");
+const HttpConnection = require("../node_modules/https_connection_binder");
 const Utils = require("../node_modules/utility_helper");
 
 class CMPQnAMakerBinder
@@ -11,8 +12,9 @@ class CMPQnAMakerBinder
     {
         
         const _self = this;
-        const _subscriptionKeyString = subscriptionKeyString;        
-        this.httpConnectionRef = HttpConnectionRef;
+        const _subscriptionKeyString = subscriptionKeyString;
+        this.Semaphore = Semaphore(5);
+        this.HttpConnection = HttpConnection;
         this.httpsClientProxy = null;
 
         var prepareHeaders = function(responseCallback)
@@ -41,7 +43,7 @@ class CMPQnAMakerBinder
                 return null;
             
             let headers = prepareHeaders();            
-            let proxy = (new _self.httpConnectionRef()).url(urlString)
+            let proxy = (new _self.HttpConnection()).url(urlString)
                                                         .headers(headers);
             return proxy;
 
@@ -51,7 +53,7 @@ class CMPQnAMakerBinder
         {
             
             let evalError = new EvalError(CMPQnAMakerConstants.ExceptionMessages
-                                            .KArgumentNullMessage);
+                                                                .KArgumentNullMessage);
             responseCallback(null, evalError);
 
         };
@@ -74,7 +76,8 @@ class CMPQnAMakerBinder
         this.performCheckStatusAsync = function(checkStatusCallback)
         {
             
-            if ((checkStatusCallback === null) || (checkStatusCallback === undefined))
+            if ((checkStatusCallback === null) ||
+                (checkStatusCallback === undefined))
             {
 
                 _self.processArgumentNullErrorResponse(checkStatusCallback);
@@ -254,10 +257,11 @@ class CMPQnAMakerBinder
 
                 }
                 
-                let checkStatusURLString = CMPQnAMakerConstants.QnAMakerURLs.KCheckStatusLoop +
-                                            location;
-                _self.httpsClientProxy = _self.prepareJSONHttpConnection(null,
-                                                                            checkStatusURLString);
+                let checkStatusURLString = CMPQnAMakerConstants.QnAMakerURLs
+                                                                .KCheckStatusLoop +
+                                                                location;
+                _self.httpsClientProxy = _self.prepareJSONHttpConnection(
+                                            null, checkStatusURLString);
 
                 _self.performCheckStatusAsync((httpResponse) =>
                 {
@@ -288,8 +292,146 @@ class CMPQnAMakerBinder
 
             }
 
-            let urlString = CMPQnAMakerConstants.QnAMakerURLs.KPublishKnowledgeBase.
-                            format(kbIdString);
+            let urlString = CMPQnAMakerConstants.QnAMakerURLs.KPublishKnowledgeBase
+                                                                .format(kbIdString);
+            _self.httpsClientProxy = _self.prepareJSONHttpConnection(null, urlString);
+
+            _self.performPostAsync((httpResponse) =>
+            {
+                                
+                if (Utils.isValidNonEmptyDictionary(httpResponse.error) === true)
+                {
+                
+                    responseCallback(null, httpResponse.error);
+                    return;
+
+                }
+                
+                responseCallback(httpResponse.responseBody, null);
+                
+            });            
+        };
+
+        this.performDeleteKnowledgeBaseAsync = function(item, responsesArray,
+                                                        errorsArray,
+                                                        responseCallback)
+        {
+            
+            if (Utils.isValidNonEmptyDictionary(item) === false)            
+                return;
+
+            const self = this;
+            self.Semaphore.take(()=>
+            {
+
+                let kbIdString = item.id;
+                self.deleteKnowledgeBaseAsync(kbIdString,
+                                                (responseBody, error) =>
+                {
+
+                    if (Utils.isValidNonEmptyDictionary(error) === true)
+                    {
+                                            
+                        errorsArray.push(error);
+                        self.Semaphore.leave();                        
+                        return;
+
+                    }
+
+                    responsesArray.push(responseBody);                    
+                    self.Semaphore.leave();
+
+                    if (self.Semaphore.current === 0)            
+                        responseCallback(responsesArray, errorsArray);
+
+                });
+
+            });
+            
+            
+        };
+        
+        this.performCreateAsync = function(requestBody, responseCallback)
+        {
+            
+            if (Utils.isValidNonEmptyDictionary(requestBody) === false)
+            {
+
+                this.processArgumentNullErrorResponse(responseCallback);
+                return;
+
+            }
+
+            _self.httpsClientProxy = _self.prepareJSONHttpConnection(requestBody,
+                                                                        CMPQnAMakerConstants
+                                                                        .QnAMakerURLs
+                                                                        .KCreateKnowledgeBase);
+            _self.performPostAsync((httpResponse) =>
+            {
+                
+                if (Utils.isValidNonEmptyDictionary(httpResponse.error) === true)
+                {
+                
+                    responseCallback(null, httpResponse.error);
+                    return;
+
+                }
+                
+                let headers = httpResponse.headers;
+                if (Utils.isValidNonEmptyDictionary(headers) === false)
+                {
+                
+                    responseCallback(null, null);
+                    return;
+
+                }
+                
+                let location = headers[CMPQnAMakerConstants.QnAMakerHeaders.KLocation];                
+                if (Utils.isNullOrEmptyString(location) === true)
+                {
+                
+                    responseCallback(null, null);
+                    return;
+
+                }
+                
+                let checkStatusURLString = CMPQnAMakerConstants.QnAMakerURLs
+                                                                .KCheckStatusLoop +
+                                                                location;
+                _self.httpsClientProxy = _self.prepareJSONHttpConnection(
+                                            null, checkStatusURLString);
+
+                _self.performCheckStatusAsync((httpResponse) =>
+                {
+
+                    if (Utils.isValidNonEmptyDictionary(httpResponse.error) === true)
+                    {
+
+                        responseCallback(null, httpResponse.error);
+                        return;
+
+                    }
+
+                    responseCallback(httpResponse.responseBody, null);
+
+                });
+                
+            });
+        };
+        
+        this.performPublishAsync = function(kbIdString, responseCallback)
+        {
+            
+            if (Utils.isNullOrEmptyString(kbIdString) === true)
+            {
+
+                _self.processArgumentNullErrorResponse(responseCallback);
+                return;
+
+            }
+
+            let urlString = CMPQnAMakerConstants.QnAMakerURLs.KPublishKnowledgeBase
+                                                                .format(kbIdString);
             _self.httpsClientProxy = _self.prepareJSONHttpConnection(null, urlString);
 
             _self.performPostAsync((httpResponse) =>
@@ -308,36 +450,6 @@ class CMPQnAMakerBinder
             });            
         };
     }
-    
-    checkStatusAsync(kbIdString, responseCallback)
-    {
-        
-        if (Utils.isNullOrEmptyString(kbIdString) === true)
-        {
-
-            responseCallback(null, null);
-            return;
-
-        }
-        
-        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KCheckStatus.format(kbIdString);
-        this.httpsClientProxy = this.prepareJSONHttpConnection(null, urlString);
-        
-        this.performGetAsync((httpResponse) =>
-        {
-                            
-            if (Utils.isValidNonEmptyDictionary(httpResponse.error) === true)
-            {
-            
-                responseCallback(null, httpResponse.error);
-                return;
-
-            }
-            
-            responseCallback(httpResponse.responseBody, null);
-            
-        });  
-    }
         
     createKnowledgeBaseAsync(requestBody, responseCallback)
     {
@@ -349,7 +461,7 @@ class CMPQnAMakerBinder
             return;
 
         }
-                    
+        
         this.performCreateAsync(requestBody, responseCallback);
 
     }
@@ -388,8 +500,8 @@ class CMPQnAMakerBinder
 
         }
         
-        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KGetKnowledgeBaseDetails.
-                        format(kbIdString);
+        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KGetKnowledgeBaseDetails
+                                                            .format(kbIdString);
         this.httpsClientProxy = this.prepareJSONHttpConnection(null, urlString);
 
         this.performGetAsync((httpResponse) =>
@@ -419,8 +531,8 @@ class CMPQnAMakerBinder
 
         }
         
-        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KOperationDetails.
-                        format(operationIdString);
+        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KGetOperationDetails
+                                                            .format(operationIdString);
         this.httpsClientProxy = this.prepareJSONHttpConnection(null, urlString);
 
         this.performGetAsync((httpResponse) =>
@@ -507,8 +619,9 @@ class CMPQnAMakerBinder
 
         }
         
-        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KDownloadKnowledgeBase.
-                            format(kbIdString, environmentString);
+        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KDownloadKnowledgeBase
+                                                            .format(kbIdString,
+                                                                    environmentString);
 
         this.httpsClientProxy = this.prepareJSONHttpConnection(null, urlString);
 
@@ -639,8 +752,8 @@ class CMPQnAMakerBinder
 
         }
         
-        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KReplaceKnowledgeBase.
-                        format(kbIdString);
+        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KReplaceKnowledgeBase
+                                                            .format(kbIdString);
         this.httpsClientProxy = this.prepareJSONHttpConnection(requestBody,
                                                                 urlString);
 
@@ -679,8 +792,8 @@ class CMPQnAMakerBinder
 
         }
         
-        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KUpdateKnowledgeBase.
-                        format(kbIdString);
+        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KUpdateKnowledgeBase
+                                                            .format(kbIdString);
         this.httpsClientProxy = this.prepareJSONHttpConnection(requestBody,
                                                                 urlString);
 
@@ -719,8 +832,8 @@ class CMPQnAMakerBinder
 
         }
         
-        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KRefreshEndpointKeys.
-                        format(keyTypeString);
+        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KRefreshEndpointKeys
+                                                            .format(keyTypeString);
         this.httpsClientProxy = this.prepareJSONHttpConnection(requestBody,
                                                                 urlString);
 
@@ -741,17 +854,9 @@ class CMPQnAMakerBinder
                 
     }
     
-    deleteKnowledgeBaseAsync(kbIdString, requestBody, responseCallback)
+    deleteKnowledgeBaseAsync(kbIdString, responseCallback)
     {
         
-        if (Utils.isValidNonEmptyDictionary(requestBody) === true)
-        {
-
-            this.processArgumentNullErrorResponse(responseCallback);
-            return;
-
-        }
-
         if (Utils.isNullOrEmptyString(kbIdString) === true)
         {
 
@@ -760,9 +865,10 @@ class CMPQnAMakerBinder
 
         }
         
-        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KDeleteKnowledgeBase.
-                        format(kbIdString);
-        this.httpsClientProxy = this.prepareJSONHttpConnection(requestBody,
+        const self = this;
+        let urlString = CMPQnAMakerConstants.QnAMakerURLs.KDeleteKnowledgeBase
+                                                            .format(kbIdString);
+        this.httpsClientProxy = this.prepareJSONHttpConnection(null,
                                                                 urlString);
 
         self.performDeleteAsync((httpResponse) =>
@@ -779,6 +885,56 @@ class CMPQnAMakerBinder
             responseCallback(httpResponse.responseBody, null);
             
         });
+    }
+
+    deleteAllKnowledgeBasesAsync(responseCallback)
+    {
+       
+        const self = this;
+        this.getKnowledgeBasesForUserAsync((responseBody, error) =>
+        {
+
+            if (Utils.isValidNonEmptyDictionary(error) === true)
+            {
+            
+                responseCallback(null, error);
+                return;
+
+            }
+
+            if (Utils.isValidNonEmptyDictionary(responseBody) === false)
+            {
+            
+                responseCallback(null, error);
+                return;
+
+            }
+
+            let knowldeBasesArray = responseBody.knowledgebases;
+            if (Utils.isValidNonEmptyArray(knowldeBasesArray) === false)
+            {
+            
+                responseCallback(null, error);
+                return;
+
+            }
+
+            let knowledgeBasesCount = knowldeBasesArray.length;            
+            self.Semaphore = (knowledgeBasesCount >= 5) ?
+                                Semaphore(5) :
+                                Semaphore(knowledgeBasesCount);
+
+            knowldeBasesArray.forEach((item, index) =>
+            {
+
+                self.performDeleteKnowledgeBaseAsync(item, [], [],
+                                                        responseCallback);
+
+
+            });
+
+        });
+
     }
 }
 
