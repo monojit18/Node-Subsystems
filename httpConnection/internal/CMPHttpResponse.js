@@ -10,10 +10,19 @@ class CMPHttpResponse
         _self.statusCode = (response !== null) ? response.statusCode : -1;        
         _self.headers = response.headers;
         _self.error = error;
-        
-        let typeString = typeof responseBody;
-        _self.responseBody = (typeString === "string") ? 
-                            JSON.parse(responseBody) : responseBody;
+
+        try
+        {
+
+            _self.responseBody = JSON.parse(responseBody);
+
+        }
+        catch(exception)
+        {
+
+            _self.responseBody = responseBody;
+
+        }
         
     }
     
