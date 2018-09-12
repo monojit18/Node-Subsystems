@@ -61,41 +61,25 @@ Performs DELETE HTTP(S) call
 
 ### getAsync
 
-const _express = Express();
-const CMPHttpConnectionProxy = require("httpconnection");
-....
-_express.get('/getTest', (req, res) =>
-{
+    const _express = Express();
+    const CMPHttpConnectionProxy = require("httpconnection");
 
-    let proxy = (new CMPHttpConnectionProxy())
-                                            .url("https://jsonplaceholder.typicode.com/todos/1")
-                                            .build();
-    proxy.getAsync((response) =>
+    ....
+    
+    _express.get('/getTest', (req, res) =>
     {
 
-        console.log(response);
-        res.send(response.responseBody);    
+        let proxy = (new CMPHttpConnectionProxy())
+                                                .url("https://jsonplaceholder.typicode.com/todos/1")
+                                                .build();
+        proxy.getAsync((response) =>
+        {
+
+            console.log(response);
+            res.send(response.responseBody);    
+
+        });
 
     });
 
-});
 
-### postAsync
-
-_express.post('/postTest', (req, res) =>
-{
-
-    let body = { "title" : "This is a test" };
-
-    let proxy = (new CMPHttpConnectionProxy())
-                                            .url("https://jsonplaceholder.typicode.com/posts")
-                                            .jsonBody(body)
-                                            .build();
-    proxy.postAsync((response) =>
-    {
-
-        console.log(response);
-        res.send(response.responseBody);    
-
-    });
-});
