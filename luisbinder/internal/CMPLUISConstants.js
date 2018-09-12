@@ -35,11 +35,11 @@ const DefaultApiConfigs  =
 
 const LUISURLs =
 {
-
-    KGetPatterns : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/patternrules?skip={3}&take={4}",
-    KGetIntentPatterns : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/intents/{3}/patternrules",
-    KTrainApplication : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/train",
+    
+    KAddLabels : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/examples",
+    KDeleteLabel : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/examples/{3}",    
     KReviewLabel : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/examples/{3}?skip={4}&take={5}",
+    KTrainApplication : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/train",
 
     KEntities : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/entities",
     KCompositeEntities : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/compositeentities",
@@ -73,8 +73,8 @@ const LUISURLs =
     KPrebuiltIntents : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/customprebuiltintents",
     KIntent : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/intents/{3}",
     
-    KAddLabels : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/examples",
-    KDeleteLabel : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/examples/{3}",
+    KGetPatterns : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/patternrules?skip={3}&take={4}",
+    KGetIntentPatterns : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/intents/{3}/patternrules",    
     KModifyPatterns : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/patternrules",
 
 

@@ -192,8 +192,12 @@ class CMPLUISBinder
                 {
 
                     urlString = CMPLUISConstants.LUISURLs.KEntities
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString);
 
                 }                                
                     break;
@@ -202,8 +206,12 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KCompositeEntities
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString);
     
                 }
                     break;
@@ -212,8 +220,12 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KListEntities
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString);
     
                 }
                     break;
@@ -222,8 +234,12 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KHierarchialEntities
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString);
     
                 }
                     break;
@@ -232,8 +248,12 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KRegExEntities
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString);
     
                 }
                     break;
@@ -242,8 +262,12 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KPreBuiltEntitiesList
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString);
     
                 }
                     break;
@@ -252,8 +276,12 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KPreBuiltDomain
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString);
     
                 }
                     break;
@@ -303,8 +331,13 @@ class CMPLUISBinder
                 {
 
                     urlString = CMPLUISConstants.LUISURLs.KCompositeChildEntities
-                    .format(this.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
 
                 }
                     break;
@@ -313,8 +346,13 @@ class CMPLUISBinder
                 {
 
                     urlString = CMPLUISConstants.LUISURLs.KHierarchialChildEntities
-                    .format(this.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
 
                 }
                     break;
@@ -323,8 +361,13 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KSubListEntities
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -374,8 +417,13 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KEntityRoles
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -384,8 +432,13 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KCompositeEntityRoles
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -394,8 +447,13 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KListEntityRoles
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -404,8 +462,13 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KHierarchialEntityRoles
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -414,8 +477,13 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KRegExEntityRoles
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -466,8 +534,13 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KEntity
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -476,8 +549,13 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KCompositeEntity
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -486,8 +564,13 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KListEntity
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -496,8 +579,13 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KHierarchialEntity
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -556,9 +644,14 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KCompositeChildEntity
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString,
-                            childIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString,
+                                                                    childIdString);
     
                 }
                     break;
@@ -567,9 +660,14 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KHierarchialChildEntity
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString,
-                            childIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString,
+                                                                    childIdString);
     
                 }
                     break;
@@ -578,9 +676,14 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KSubListEntity
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString,
-                            childIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString,
+                                                                    childIdString);
     
                 }
                     break;
@@ -639,9 +742,14 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KEntityRole
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString,
-                            roleIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString,
+                                                                    roleIdString);
     
                 }
                     break;
@@ -650,9 +758,14 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KCompositeEntityRole
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString,
-                            roleIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString,
+                                                                    roleIdString);
     
                 }
                     break;
@@ -661,9 +774,14 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KListEntityRole
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString,
-                            roleIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString,
+                                                                    roleIdString);
     
                 }
                     break;
@@ -672,9 +790,14 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KHierarchialEntityRole
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString,
-                            roleIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString,
+                                                                    roleIdString);
     
                 }
                     break;
@@ -683,9 +806,14 @@ class CMPLUISBinder
                 {
         
                     urlString = CMPLUISConstants.LUISURLs.KRegExEntityRole
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString,
-                            roleIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString,
+                                                                    roleIdString);
     
                 }
                         break;
@@ -727,8 +855,12 @@ class CMPLUISBinder
                 {
 
                     urlString = CMPLUISConstants.LUISURLs.KIntents
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString);
 
                 }                                
                     break;
@@ -737,8 +869,12 @@ class CMPLUISBinder
                 {
 
                     urlString = CMPLUISConstants.LUISURLs.KPrebuiltIntents
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString);
 
                 }                                
                     break;
@@ -789,8 +925,13 @@ class CMPLUISBinder
                 {
 
                     urlString = CMPLUISConstants.LUISURLs.KIntent
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, intentIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    intentIdString);
 
                 }                                
                     break;
@@ -832,8 +973,13 @@ class CMPLUISBinder
                 {
 
                     urlString = CMPLUISConstants.LUISURLs.KEntity
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
 
                 }                                
                     break;
@@ -842,8 +988,13 @@ class CMPLUISBinder
                     {
         
                         urlString = CMPLUISConstants.LUISURLs.KCompositeEntity
-                        .format(_self.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString, entityIdString);
+                                                                .format(_self
+                                                                        .regionKeyString,
+                                                                        appConfigInfo
+                                                                        .appIdString,
+                                                                        appConfigInfo
+                                                                        .versionIdString,
+                                                                        entityIdString);
         
                     }
                     break;
@@ -852,8 +1003,13 @@ class CMPLUISBinder
                     {
         
                         urlString = CMPLUISConstants.LUISURLs.KListEntity
-                        .format(_self.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString, entityIdString);
+                                                                .format(_self
+                                                                        .regionKeyString,
+                                                                        appConfigInfo
+                                                                        .appIdString,
+                                                                        appConfigInfo
+                                                                        .versionIdString,
+                                                                        entityIdString);
         
                     }
                     break;
@@ -862,8 +1018,13 @@ class CMPLUISBinder
                     {
         
                         urlString = CMPLUISConstants.LUISURLs.KHierarchialEntity
-                        .format(_self.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString, entityIdString);
+                                                                .format(_self
+                                                                        .regionKeyString,
+                                                                        appConfigInfo
+                                                                        .appIdString,
+                                                                        appConfigInfo
+                                                                        .versionIdString,
+                                                                        entityIdString);
         
                     }
                     break;
@@ -872,8 +1033,13 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KRegExEntity
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -882,8 +1048,13 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KEntityRoles
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -892,8 +1063,13 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KCompositeEntityRoles
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -902,8 +1078,13 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KListEntityRoles
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -912,8 +1093,13 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KHierarchialEntityRoles
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -922,8 +1108,13 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KRegExEntityRoles
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString);
     
                 }
                     break;
@@ -973,9 +1164,14 @@ class CMPLUISBinder
                 {
 
                     urlString = CMPLUISConstants.LUISURLs.KEntityRole
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString,
-                            roleIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString,
+                                                                    roleIdString);
 
                 }                                
                     break;
@@ -984,9 +1180,14 @@ class CMPLUISBinder
                     {
         
                         urlString = CMPLUISConstants.LUISURLs.KCompositeEntityRole
-                        .format(_self.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString, entityIdString,
-                                roleIdString);
+                                                                        .format(_self
+                                                                        .regionKeyString,
+                                                                        appConfigInfo
+                                                                        .appIdString,
+                                                                        appConfigInfo
+                                                                        .versionIdString,
+                                                                        entityIdString,
+                                                                        roleIdString);
         
                     }
                     break;
@@ -995,9 +1196,14 @@ class CMPLUISBinder
                     {
         
                         urlString = CMPLUISConstants.LUISURLs.KListEntityRole
-                        .format(_self.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString, entityIdString,
-                                roleIdString);
+                                                                .format(_self
+                                                                        .regionKeyString,
+                                                                        appConfigInfo
+                                                                        .appIdString,
+                                                                        appConfigInfo
+                                                                        .versionIdString,
+                                                                        entityIdString,
+                                                                        roleIdString);
         
                     }
                     break;
@@ -1006,9 +1212,14 @@ class CMPLUISBinder
                     {
         
                         urlString = CMPLUISConstants.LUISURLs.KHierarchialEntityRole
-                        .format(_self.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString, entityIdString,
-                                roleIdString);
+                                                                .format(_self
+                                                                        .regionKeyString,
+                                                                        appConfigInfo
+                                                                        .appIdString,
+                                                                        appConfigInfo
+                                                                        .versionIdString,
+                                                                        entityIdString,
+                                                                        roleIdString);
         
                     }
                     break;
@@ -1017,9 +1228,14 @@ class CMPLUISBinder
                 {
     
                     urlString = CMPLUISConstants.LUISURLs.KRegExEntityRole
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, entityIdString,
-                            roleIdString);
+                                                            .format(_self
+                                                                    .regionKeyString,
+                                                                    appConfigInfo
+                                                                    .appIdString,
+                                                                    appConfigInfo
+                                                                    .versionIdString,
+                                                                    entityIdString,
+                                                                    roleIdString);
     
                 }
                     break;
@@ -1061,8 +1277,12 @@ class CMPLUISBinder
                 {
 
                     urlString = CMPLUISConstants.LUISURLs.KIntent
-                    .format(_self.regionKeyString, appConfigInfo.appIdString,
-                            appConfigInfo.versionIdString, intentIdString);
+                                                .format(_self.regionKeyString,
+                                                        appConfigInfo
+                                                        .appIdString,
+                                                        appConfigInfo
+                                                        .versionIdString,
+                                                        intentIdString);
 
                 }                                
                     break;
@@ -1090,8 +1310,12 @@ class CMPLUISBinder
         }
 
         let urlString = CMPLUISConstants.LUISURLs.KGetPatterns
-                        .format(this.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString);
+                                                    .format(this
+                                                            .regionKeyString,
+                                                            appConfigInfo
+                                                            .appIdString,
+                                                            appConfigInfo
+                                                            .versionIdString);
 
         if (Utils.isNullOrEmptyString(skipLimitString) === false)
             urlString = urlString.format(skipLimitString);
@@ -1124,8 +1348,13 @@ class CMPLUISBinder
         }
 
         let urlString = CMPLUISConstants.LUISURLs.KGetPatterns
-                        .format(this.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString, intentIdString);
+                                                    .format(this
+                                                            .regionKeyString,
+                                                            appConfigInfo
+                                                            .appIdString,
+                                                            appConfigInfo
+                                                            .versionIdString,
+                                                            intentIdString);
 
         this.httpsClientProxy = this.prepareJSONHttpConnection(null,
                                                                 urlString);
@@ -1145,8 +1374,12 @@ class CMPLUISBinder
         }
 
         let urlString = CMPLUISConstants.LUISURLs.KTrainApplication
-                        .format(this.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString);
+                                                    .format(this
+                                                            .regionKeyString,
+                                                            appConfigInfo
+                                                            .appIdString,
+                                                            appConfigInfo
+                                                            .versionIdString);
 
         this.httpsClientProxy = this.prepareJSONHttpConnection(null,
                                                                 urlString);
@@ -1167,8 +1400,12 @@ class CMPLUISBinder
         }
 
         let urlString = CMPLUISConstants.LUISURLs.KModifyPatterns
-                        .format(this.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString);
+                                                    .format(this
+                                                            .regionKeyString,
+                                                            appConfigInfo
+                                                            .appIdString,
+                                                            appConfigInfo
+                                                            .versionIdString);
 
         if (Utils.isNullOrEmptyString(skipLimitString) === false)
             urlString = urlString.format(skipLimitString);
@@ -1334,7 +1571,8 @@ class CMPLUISBinder
 
         }
         
-        let urlString = CMPLUISConstants.LUISURLs.KAddLabels.format(this.regionKeyString, 
+        let urlString = CMPLUISConstants.LUISURLs.KAddLabels.format(this
+                                                                    .regionKeyString, 
                                                                     appConfigInfo
                                                                     .appIdString,
                                                                     appConfigInfo
@@ -1364,8 +1602,13 @@ class CMPLUISBinder
         }
         
         let urlString = CMPLUISConstants.LUISURLs.KDeleteLabel
-                        .format(this.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString, exampleIdString);
+                                                    .format(this
+                                                            .regionKeyString,
+                                                            appConfigInfo
+                                                            .appIdString,
+                                                            appConfigInfo
+                                                            .versionIdString,
+                                                            exampleIdString);
 
         this.httpsClientProxy = this.prepareJSONHttpConnection(null, urlString);
         this.performHttpAsync(responseCallback, this.performDeleteAsync);
@@ -1392,8 +1635,12 @@ class CMPLUISBinder
         }
         
         let urlString = CMPLUISConstants.LUISURLs.KModifyPatterns
-                        .format(this.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString);
+                                                    .format(this
+                                                            .regionKeyString,
+                                                            appConfigInfo
+                                                            .appIdString,
+                                                            appConfigInfo
+                                                            .versionIdString);
 
         this.httpsClientProxy = this.prepareJSONHttpConnection(requestBody,
                                                                 urlString);
@@ -1421,8 +1668,12 @@ class CMPLUISBinder
         }
         
         let urlString = CMPLUISConstants.LUISURLs.KModifyPatterns
-                        .format(this.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString);
+                                                    .format(this
+                                                            .regionKeyString,
+                                                            appConfigInfo
+                                                            .appIdString,
+                                                            appConfigInfo
+                                                            .versionIdString);
 
         this.httpsClientProxy = this.prepareJSONHttpConnection(requestBody,
                                                                 urlString);
@@ -1450,8 +1701,12 @@ class CMPLUISBinder
         }
         
         let urlString = CMPLUISConstants.LUISURLs.KModifyPatterns
-                        .format(this.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString);
+                                                    .format(this
+                                                            .regionKeyString,
+                                                            appConfigInfo
+                                                            .appIdString,
+                                                            appConfigInfo
+                                                            .versionIdString);
 
         this.httpsClientProxy = this.prepareJSONHttpConnection(requestBody,
                                                                 urlString);
@@ -1471,8 +1726,12 @@ class CMPLUISBinder
         }
 
         let urlString = CMPLUISConstants.LUISURLs.KTrainApplication
-                        .format(this.regionKeyString, appConfigInfo.appIdString,
-                                appConfigInfo.versionIdString);
+                                                    .format(this
+                                                            .regionKeyString,
+                                                            appConfigInfo
+                                                            .appIdString,
+                                                            appConfigInfo
+                                                            .versionIdString);
 
         this.httpsClientProxy = this.prepareJSONHttpConnection(null,
                                                                 urlString);

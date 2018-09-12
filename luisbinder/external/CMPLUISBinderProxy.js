@@ -200,6 +200,14 @@ class CMPLUISBinderProxy
 
     }
 
+    addPatternsAsync(appConfigInfo, requestBody, responseCallback)
+    {
+
+        this.luisBinder.addPatternsAsync(appConfigInfo, requestBody,
+                                            responseCallback);
+
+    }
+
     deletePatternsAsync(appConfigInfo, requestBody, responseCallback)
     {
 
