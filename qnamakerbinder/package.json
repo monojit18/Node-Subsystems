@@ -1,6 +1,6 @@
 {
   "name": "azure_qnamaker_binder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "QNMaker binder component",
   "author": "Monojit Datta",
   "license": "MIT",
@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "npm install --unsafe-perm --save-dev semaphore"
+    "install": "npm install --unsafe-perm --save semaphore https_connection_binder"
   },
   "keywords": [
     "Azure"
@@ -24,5 +24,7 @@
   "devDependencies": {
     "semaphore": "^1.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "https_connection_binder": "^1.0.2"
+  }
 }
