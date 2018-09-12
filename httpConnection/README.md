@@ -82,4 +82,24 @@ Performs DELETE HTTP(S) call
 
     });
 
+### postAsync
 
+    _express.post('/postTest', (req, res) =>
+
+    {
+
+        let body = { "title" : "This is a test" };
+
+        let proxy = (new CMPHttpConnectionProxy())
+                                                .url("https://jsonplaceholder.typicode.com/posts")
+                                                .jsonBody(body)
+                                                .build();
+        proxy.postAsync((response) =>
+        {
+
+            console.log(response);
+            res.send(response.responseBody);    
+
+        });
+
+    });
