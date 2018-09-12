@@ -7,7 +7,7 @@ It still uses the classic callback mechanism to return data asynchronosuly to th
 CMPHttpConnectionProxy
 This is the interface exposed to the outside world.
 
-## Methods
+## Exposed Methods
 
 - url(urlString)
 
