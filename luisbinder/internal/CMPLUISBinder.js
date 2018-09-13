@@ -1459,8 +1459,8 @@ class CMPLUISBinder
     {
         
         this.performModifyChildEntityAsync(appConfigInfo, entityIdString,
-                                        childIdString, requestBody,
-                                        responseCallback, this.performPutAsync);
+                                            childIdString, requestBody,
+                                            responseCallback, this.performPutAsync);
         
     }
 
