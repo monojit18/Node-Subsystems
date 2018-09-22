@@ -3,7 +3,7 @@
 const CMPQnAMakerConstants = require("./CMPQnAMakerConstants");
 const Semaphore = require("../node_modules/semaphore");
 const HttpConnection = require("../node_modules/https_connection_binder");
-const Utils = require("./utility_helper");
+const Utils = require("./Utils");
 
 class CMPQnAMakerBinder
 {

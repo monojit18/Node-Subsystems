@@ -2,7 +2,7 @@
 
 const CMPLUISConstants = require("./CMPLUISConstants");
 const HttpConnectionRef = require("../node_modules/https_connection_binder");
-const Utils = require("./utility_helper");
+const Utils = require("./Utils");
 
 class CMPLUISBinder
 {
