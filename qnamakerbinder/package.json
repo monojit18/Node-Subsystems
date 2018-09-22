@@ -25,6 +25,6 @@
     "semaphore": "^1.1.0"
   },
   "dependencies": {
-    "https_connection_binder": "^1.0.2"
+    "https_connection_binder": "^1.0.3"
   }
 }
