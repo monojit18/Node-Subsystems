@@ -1,6 +1,6 @@
 {
   "name": "azure_qnamaker_binder",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "QNMaker binder component",
   "author": "Monojit Datta",
   "license": "MIT",
@@ -21,10 +21,8 @@
   "engines": {
     "node": ">=8.9.3"
   },
-  "devDependencies": {
-    "semaphore": "^1.1.0"
-  },
   "dependencies": {
-    "https_connection_binder": "^1.0.3"
+    "https_connection_binder": "^1.0.3",
+    "semaphore": "^1.1.0"
   }
 }
