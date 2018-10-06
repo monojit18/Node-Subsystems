@@ -6,10 +6,10 @@ const kUTF8String = "utf8";
 
 function Utils(){}
 
-Utils.readDataFile = function(filePathString)
+Utils.readDataFile = function(dirName, filePathString)
 {
         
-    const resolvedFilePathString = PathModule.join(__dirname, "..", filePathString);
+    const resolvedFilePathString = PathModule.join(dirName, filePathString);
     console.log(resolvedFilePathString);
     const fileDataRef = FileSystemModule.readFileSync(resolvedFilePathString, kUTF8String);
     return fileDataRef;
@@ -74,7 +74,6 @@ Utils.getEnvironmentDetails = function(environmentsArray, selectedEnvironmentStr
     if (Utils.isNullOrEmptyString(selectedEnvironmentString) === true)
         return null;
     
-    const index = 0;
     for (let index = 0;index < environmentsArray.length;++index)
     {
         
@@ -98,7 +97,6 @@ Utils.getErrorWarningDetails = function(errorWarningsArray, errorWarningCodeStri
     if (Utils.isNullOrEmptyString(errorWarningCodeString) === true)
         return null;
     
-    const index = 0;
     for (let index = 0;index < errorWarningsArray.length;++index)
     {
         
