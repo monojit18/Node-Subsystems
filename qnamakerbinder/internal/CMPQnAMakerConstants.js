@@ -39,7 +39,7 @@ const QnAMakerURLs =
     KDownloadAlterations : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/alterations",
     KDownloadKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}/{1}/qna",
     KPublishKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}",
-    KRefreshEndpointKeys: "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/endpointkeys/{0}",
+    KRefreshEndpointKeys : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/endpointkeys/{0}",
     KReplaceAlterations : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/alterations",
     KReplaceKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}",
     KUpdateKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}",
