@@ -707,7 +707,7 @@ class CMPQnAMakerBinder
         if (Utils.isValidNonEmptyDictionary(requestBody) === false)
         {
 
-            this.processArgumentNullErrorResponse(response, responseCallback);
+            this.processArgumentNullErrorResponse(responseCallback);
             return;
 
         }
@@ -737,7 +737,7 @@ class CMPQnAMakerBinder
         if (Utils.isValidNonEmptyDictionary(requestBody) === true)
         {
 
-            this.processArgumentNullErrorResponse(response, responseCallback);
+            this.processArgumentNullErrorResponse(responseCallback);
             return;
 
         }
