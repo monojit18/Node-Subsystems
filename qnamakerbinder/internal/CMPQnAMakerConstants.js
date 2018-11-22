@@ -30,7 +30,7 @@ const DefaultResponseMessages =
 const QnAMakerURLs =
 {
 
-    KCreateKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create",
+    KCreateKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create",    
     KCheckStatusLoop : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0",
     KGetKnowledgeBaseDetails : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}",
     KGetKnowledgeBasesForUser : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases", 
@@ -43,7 +43,8 @@ const QnAMakerURLs =
     KReplaceAlterations : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/alterations",
     KReplaceKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}",
     KUpdateKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}",
-    KDeleteKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}"  
+    KDeleteKnowledgeBase : "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/{0}",
+    KGenerateAnswer : "https://workshopqnaai.azurewebsites.net/qnamaker/knowledgebases/{0}/generateAnswer",
     
 };
 
@@ -52,7 +53,8 @@ const QnAMakerHeaders =
 
     KSubscriptionKey : "Ocp-Apim-Subscription-Key",
     KLocation : "location",
-    
+    KAuthorization  : "Authorization",
+    KEndpointToken  : "EndpointKey "    
 };
 
 const QnAMakerStatus =

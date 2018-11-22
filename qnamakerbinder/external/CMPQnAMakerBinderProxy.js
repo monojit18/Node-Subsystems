@@ -5,18 +5,28 @@ const CMPQnAMakerBinder = require("../internal/CMPQnAMakerBinder");
 class CMPQnAMakerBinderProxy
 {
 
-    constructor(subscriptionKeyString)
+    constructor(subscriptionKeyString, authKeyString)
     {
 
         const _self = this;
-        this.qnaMakerBinder = new CMPQnAMakerBinder(subscriptionKeyString);
+        this.qnaMakerBinder = new CMPQnAMakerBinder(subscriptionKeyString,
+                                                    authKeyString);
         
     }
 
     createKnowledgeBaseAsync(requestBody, responseCallback)
     {
 
-        this.qnaMakerBinder.createKnowledgeBaseAsync(requestBody, responseCallback);
+        this.qnaMakerBinder.createKnowledgeBaseAsync(requestBody,
+                                                        responseCallback);
+
+    }
+
+    generateAnswerAsync(kbIdString, requestBody, responseCallback)
+    {
+
+        this.qnaMakerBinder.generateAnswerAsync(kbIdString, requestBody,
+                                                responseCallback);
 
     }
 

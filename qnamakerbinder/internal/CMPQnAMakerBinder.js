@@ -8,11 +8,12 @@ const Utils = require("../node_modules/utility_helper");
 class CMPQnAMakerBinder
 {
     
-    constructor(subscriptionKeyString)
+    constructor(subscriptionKeyString, authKeyString)
     {
         
         const _self = this;
         const _subscriptionKeyString = subscriptionKeyString;
+        const _authKeyString = authKeyString;
         this.Semaphore = Semaphore(5);
         this.HttpConnection = HttpConnection;
         this.httpsClientProxy = null;
@@ -20,8 +21,13 @@ class CMPQnAMakerBinder
         var prepareHeaders = function(responseCallback)
         {
             
-            let headers = {};            
-            if (Utils.isNullOrEmptyString(_subscriptionKeyString) == true)
+            let headers = {};
+            let noSubscription = (Utils.isNullOrEmptyString(_subscriptionKeyString) ==
+                                    true);
+            let noAuthorization = (Utils.isNullOrEmptyString(_authKeyString) ==
+                                    true);
+
+            if ((noSubscription && noAuthorization) == true)
             {
 
                 _self.processArgumentNullErrorResponse(responseCallback);
@@ -30,7 +36,7 @@ class CMPQnAMakerBinder
             }
             
             headers[CMPQnAMakerConstants.QnAMakerHeaders.KSubscriptionKey] =
-            subscriptionKeyString;
+                    subscriptionKeyString;
 
             return headers;
             
@@ -49,6 +55,18 @@ class CMPQnAMakerBinder
 
         };
 
+        this.prepareAuthorizationHeader = function()
+        {
+            
+            let headers = {};            
+            let authorizationString = CMPQnAMakerConstants.QnAMakerHeaders
+                                        .KEndpointToken + _authKeyString;
+            headers[CMPQnAMakerConstants.QnAMakerHeaders.KAuthorization] =
+                    authorizationString;
+            return headers;
+            
+        };
+
         this.processArgumentNullErrorResponse = function(responseCallback)
         {
             
@@ -64,6 +82,24 @@ class CMPQnAMakerBinder
             let proxy = prepareHttpConnection(urlString);
             if (Utils.isValidNonEmptyDictionary(proxy) === false)
                 return null;
+
+            if (Utils.isValidNonEmptyDictionary(requestBody) === true)                
+                proxy = proxy.jsonBody(requestBody);
+
+            proxy = proxy.build();
+            return proxy;
+            
+        };
+
+        this.prepareJSONHttpConnectionForAnswer = function(requestBody, urlString)
+        {
+            
+            let proxy = prepareHttpConnection(urlString);
+            if (Utils.isValidNonEmptyDictionary(proxy) === false)
+                return null;
+
+            var headers = this.prepareAuthorizationHeader();
+            proxy = proxy.headers(headers);
 
             if (Utils.isValidNonEmptyDictionary(requestBody) === true)                
                 proxy = proxy.jsonBody(requestBody);
@@ -277,6 +313,30 @@ class CMPQnAMakerBinder
                     responseCallback(httpResponse.responseBody, null);
 
                 });
+                
+            });
+        };
+
+        this.performGenerateAnswerAsync = (kbIdString, requestBody,
+                                            responseCallback) =>
+        {
+            
+            let urlString = CMPQnAMakerConstants.QnAMakerURLs.KGenerateAnswer
+                                                                .format(kbIdString);
+            _self.httpsClientProxy = _self.prepareJSONHttpConnectionForAnswer(
+                                            requestBody, urlString);
+            _self.performPostAsync((httpResponse) =>
+            {
+                
+                if (Utils.isValidNonEmptyDictionary(httpResponse.error) === true)
+                {
+                
+                    responseCallback(null, httpResponse.error);
+                    return;
+
+                }
+
+                responseCallback(httpResponse.responseBody, null);
                 
             });
         };
@@ -639,6 +699,21 @@ class CMPQnAMakerBinder
             responseCallback(httpResponse.responseBody, null);
             
         });
+    }
+
+    generateAnswerAsync(kbIdString, requestBody, responseCallback)
+    {
+
+        if (Utils.isValidNonEmptyDictionary(requestBody) === false)
+        {
+
+            this.processArgumentNullErrorResponse(response, responseCallback);
+            return;
+
+        }
+
+        this.performGenerateAnswerAsync(kbIdString, requestBody, responseCallback);
+
     }
     
     publishKnowledgeBaseAsync(kbIdString, responseCallback)
