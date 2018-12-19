@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "npm install --unsafe-perm --save-dev semaphore https_connection_binder"
+    "install": "npm install --unsafe-perm --save-dev semaphore"
   },
   "keywords": [
     "Azure"
@@ -22,7 +22,6 @@
     "node": ">=8.9.3"
   },
   "devDependencies": {
-    "https_connection_binder": "^1.0.3",
     "semaphore": "^1.1.0"
   },
   "dependencies": {}
