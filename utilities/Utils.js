@@ -6,24 +6,26 @@ const kUTF8String = "utf8";
 
 function Utils(){}
 
-Utils.readDataFile = function(dirName, filePathString)
+Utils.readDataFile = (dirName, filePathString) =>
 {
         
-    const resolvedFilePathString = PathModule.join(dirName, filePathString);
+    const resolvedFilePathString = PathModule.join(dirName,
+                                                    filePathString);
     console.log(resolvedFilePathString);
-    const fileDataRef = FileSystemModule.readFileSync(resolvedFilePathString, kUTF8String);
+    const fileDataRef = FileSystemModule.readFileSync(resolvedFilePathString,
+                                                        kUTF8String);
     return fileDataRef;
     
 };
 
-Utils.isValidDictionary = function(dictionaryRef)
+Utils.isValidDictionary = (dictionaryRef) =>
 {
   
     return ((dictionaryRef !== null) && (dictionaryRef !== undefined));
     
 };
 
-Utils.isValidNonEmptyDictionary = function(dictionaryRef)
+Utils.isValidNonEmptyDictionary = (dictionaryRef) =>
 {
   
     const isValid = Utils.isValidDictionary(dictionaryRef);
@@ -34,7 +36,7 @@ Utils.isValidNonEmptyDictionary = function(dictionaryRef)
         
 };
 
-Utils.isValidArray = function(arrayRef)
+Utils.isValidArray = (arrayRef) =>
 {
   
     if (Array.isArray(arrayRef) === false)
@@ -44,7 +46,7 @@ Utils.isValidArray = function(arrayRef)
         
 };
 
-Utils.isValidNonEmptyArray = function(arrayRef)
+Utils.isValidNonEmptyArray = (arrayRef) =>
 {
     
     const isValid = Utils.isValidArray(arrayRef);
@@ -55,17 +57,19 @@ Utils.isValidNonEmptyArray = function(arrayRef)
         
 };
 
-Utils.isNullOrEmptyString = function(stringRef)
+Utils.isNullOrEmptyString = (stringRef) =>
 {
   
-    if ((stringRef === null) || (stringRef === undefined) || (stringRef.length === 0))
+    if ((stringRef === null) || (stringRef === undefined) ||
+        (stringRef.length === 0))
         return true;
     
     return false;
         
 };
 
-Utils.getEnvironmentDetails = function(environmentsArray, selectedEnvironmentString)
+Utils.getEnvironmentDetails = (environmentsArray,
+                                selectedEnvironmentString) =>
 {
   
     if (Utils.isValidNonEmptyArray(environmentsArray) === false)
@@ -74,21 +78,22 @@ Utils.getEnvironmentDetails = function(environmentsArray, selectedEnvironmentStr
     if (Utils.isNullOrEmptyString(selectedEnvironmentString) === true)
         return null;
     
+    let environmentInfo = null;
     for (let index = 0;index < environmentsArray.length;++index)
     {
         
-        const environmentInfo = environmentsArray[index];
+        environmentInfo = environmentsArray[index];
         if (environmentInfo.Environment === selectedEnvironmentString)
             return environmentInfo;
 
     }
     
-    return null;
-    
-    
+    return environmentInfo;
+
 };
 
-Utils.getErrorWarningDetails = function(errorWarningsArray, errorWarningCodeString)
+Utils.getErrorWarningDetails = (errorWarningsArray,
+                                errorWarningCodeString) =>
 {
   
     if (Utils.isValidNonEmptyArray(errorWarningsArray) === false)
@@ -97,28 +102,28 @@ Utils.getErrorWarningDetails = function(errorWarningsArray, errorWarningCodeStri
     if (Utils.isNullOrEmptyString(errorWarningCodeString) === true)
         return null;
     
+    let errorWarningInfo = null;
     for (let index = 0;index < errorWarningsArray.length;++index)
     {
         
-        const errorWarningInfo = errorWarningsArray[index];
+        errorWarningInfo = errorWarningsArray[index];
         if (errorWarningInfo.Code === errorWarningCodeString)
             return errorWarningInfo;
 
     }
     
-    return null;
-    
+    return errorWarningInfo;
     
 };
 
-Utils.processLatLng = function(latlngString)
+Utils.processLatLng = (latlngString) =>
 {
     
     if (Utils.isNullOrEmptyString(latlngString) === true)
         return null;
     
-    const latlngArray = latlngString.split(",");   
-    const latlng = {};
+    let latlngArray = latlngString.split(",");   
+    let latlng = {};
     latlng.latitude = latlngArray[0];
     latlng.longitude = latlngArray[1];
     return latlng;
@@ -138,4 +143,3 @@ String.prototype.format = function()
 };
 
 module.exports = Utils;
-

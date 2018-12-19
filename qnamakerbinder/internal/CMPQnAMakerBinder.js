@@ -18,7 +18,7 @@ class CMPQnAMakerBinder
         this.HttpConnection = HttpConnection;
         this.httpsClientProxy = null;
 
-        var prepareHeaders = function(responseCallback)
+        var prepareHeaders = function()
         {
             
             let headers = {};
@@ -27,16 +27,11 @@ class CMPQnAMakerBinder
             let noAuthorization = (Utils.isNullOrEmptyString(_authKeyString) ==
                                     true);
 
-            if ((noSubscription && noAuthorization) == true)
-            {
-
-                _self.processArgumentNullErrorResponse(responseCallback);
-                return;
-
-            }
+            if ((noSubscription && noAuthorization) == true)            
+                return null;
             
-            headers[CMPQnAMakerConstants.QnAMakerHeaders.KSubscriptionKey] =
-                    subscriptionKeyString;
+            headers[CMPQnAMakerConstants.QnAMakerHeaders
+                    .KSubscriptionKey] = subscriptionKeyString;
 
             return headers;
             
@@ -48,9 +43,13 @@ class CMPQnAMakerBinder
             if (Utils.isNullOrEmptyString(urlString) === true)
                 return null;
             
-            let headers = prepareHeaders();            
-            let proxy = (new _self.HttpConnection()).url(urlString)
-                                                        .headers(headers);
+            let headers = prepareHeaders();
+            if (headers === null)
+                return null;
+                
+            let proxy = (new _self.HttpConnection())
+                                    .url(urlString)
+                                    .headers(headers);
             return proxy;
 
         };
