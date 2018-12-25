@@ -11,6 +11,8 @@ class CMPQnAMakerBinder
     constructor(subscriptionKeyString, authKeyString)
     {
         
+        const KRunningStateString = "Running";
+        const KNotStartedStateString = "NotStarted";
         const _self = this;
         const _subscriptionKeyString = subscriptionKeyString;
         const _authKeyString = authKeyString;
@@ -58,7 +60,8 @@ class CMPQnAMakerBinder
         {
             
             let headers = {};            
-            let authorizationString = CMPQnAMakerConstants.QnAMakerHeaders
+            let authorizationString = CMPQnAMakerConstants
+                                        .QnAMakerHeaders
                                         .KEndpointToken + _authKeyString;
             headers[CMPQnAMakerConstants.QnAMakerHeaders.KAuthorization] =
                     authorizationString;
@@ -132,8 +135,8 @@ class CMPQnAMakerBinder
                 }
                 
                 const responseBody = httpResponse.responseBody; 
-                if ((responseBody.operationState === "Running") ||
-                    (responseBody.operationState === "NotStarted"))
+                if ((responseBody.operationState === KRunningStateString) ||
+                    (responseBody.operationState === KNotStartedStateString))
                     _self.performCheckStatusAsync(checkStatusCallback);                
                 else
                     checkStatusCallback(httpResponse);
