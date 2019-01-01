@@ -4,7 +4,7 @@ const FileSystemModule = require("fs");
 const PathModule = require("path");
 const kUTF8String = "utf8";
 
-function Utils(){}
+class Utils {}
 
 Utils.readDataFile = (dirName, filePathString) =>
 {
