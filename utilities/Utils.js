@@ -88,7 +88,7 @@ Utils.getEnvironmentDetails = (environmentsArray,
 
     }
     
-    return environmentInfo;
+    return null;
 
 };
 
@@ -112,7 +112,7 @@ Utils.getErrorWarningDetails = (errorWarningsArray,
 
     }
     
-    return errorWarningInfo;
+    return null;
     
 };
 
