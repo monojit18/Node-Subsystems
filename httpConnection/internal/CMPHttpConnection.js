@@ -21,7 +21,7 @@ class CMPHttpConnection
         this.contentTypeEnum = CMPHttpConstants.ContentTypeEnum.KApplicationJson;
         this.requestOptions = { "json" : false };
         
-        this.isValidNonEmptyDictionary = function(dictionaryRef)
+        this.isValidNonEmptyDictionary = (dictionaryRef) =>
         {
 
             return ((dictionaryRef !== null) && (dictionaryRef !== undefined) &&
@@ -29,7 +29,7 @@ class CMPHttpConnection
 
         };
 
-        this.isNullOrEmptyString = function(stringRef)
+        this.isNullOrEmptyString = (stringRef) =>
         {
 
             return ((stringRef === null) || (stringRef === undefined) ||
@@ -70,7 +70,7 @@ class CMPHttpConnection
 
         };
         
-        this.prepareContent = function()
+        this.prepareContent = () =>
         {
 
             switch (this.contentTypeEnum)
@@ -102,7 +102,7 @@ class CMPHttpConnection
                 case CMPHttpConstants.ContentTypeEnum.KByteArrayData:
                 {
                     
-                    var byteBuffer = Buffer.from(this.byteArray);
+                    let byteBuffer = Buffer.from(this.byteArray);
                     this.requestOptions.body = byteBuffer;                    
                 }
                     break;
@@ -116,7 +116,7 @@ class CMPHttpConnection
 
         };
         
-        this.prepareResponse = function(response, responseBody)
+        this.prepareResponse = (response, responseBody) =>
         {
             
             let httpResponse = new CMPHttpResponse(responseBody, response, null);
@@ -124,7 +124,7 @@ class CMPHttpConnection
 
         };
     
-        this.prepareError = function(error)
+        this.prepareError = (error) =>
         {
 
             let httpResponse = new CMPHttpResponse(null, null, error);
@@ -132,16 +132,17 @@ class CMPHttpConnection
 
         };
         
-        this.performAsync = function(responseCallback)
+        this.performAsync = (responseCallback) =>
         {
 
             try
             {
 
-                _self.httpsClient(this.requestOptions, function(error, response, responseBody)
+                _self.httpsClient(this.requestOptions,
+                                    (error, response, responseBody) =>
                 {
 
-                    var httpResponse = null;
+                    let httpResponse = null;
 
                     if (error !== null)                    
                         httpResponse = _self.prepareError(error);
@@ -228,7 +229,7 @@ class CMPHttpConnection
     build()
     {
         
-        var contentTypeString = this.prepareContentType();
+        let contentTypeString = this.prepareContentType();
         this.headersDictionary[CMPHttpConstants.ContentType] = contentTypeString;
         
         this.requestOptions.url = this.urlString;
@@ -278,6 +279,34 @@ class CMPHttpConnection
         this.requestOptions.method = CMPHttpConstants.HttpMethod.delete;
         this.prepareContent();
         this.performAsync(responseCallback);        
+
+    }
+
+    getByteArrayAsync(urlString, responseCallback)
+    {
+
+        const self = this;
+        try
+        {
+
+            this.httpsClient.get(urlString).on("data",
+                                                (responseBody) =>
+            {
+                
+                let httpResponse = self.prepareResponse(null, responseBody);
+                responseCallback(httpResponse);
+
+            });
+
+        }
+        catch(exception)
+        {
+
+            let error = new Error(exception.message);
+            let httpResponse = self.prepareError(error);
+            responseCallback(httpResponse);
+
+        }     
 
     }
     
