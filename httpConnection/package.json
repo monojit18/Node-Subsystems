@@ -1,6 +1,6 @@
 {
   "name": "https_connection_binder",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "HttpConnection binder component for popular request npm package",
   "main": "external/CMPHttpConnectionProxy.js",
   "scripts": {
