@@ -3,7 +3,7 @@
 const CMPLUISBinder = require("./CMPLUISBinder");
 const CMPLUISConstants = require("./CMPLUISConstants");
 const HttpConnectionRef = require("../node_modules/https_connection_binder");
-const Utils = require("../commons/Utils");
+const Utils = require("./Utils");
 // const Utils = require("../node_modules/utility_helper");
 
 class CMPLUISPatternBinder extends CMPLUISBinder
