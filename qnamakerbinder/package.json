@@ -1,6 +1,6 @@
 {
   "name": "azure_qnamaker_binder",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "QNMaker binder component",
   "author": "Monojit Datta",
   "license": "MIT",
