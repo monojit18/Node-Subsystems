@@ -68,4 +68,8 @@ Deletes Specific KB
 
 Deletes All KBs
 
+- generateAnswerAsync
+
+Generates answers from the Knowledge base
+
 
