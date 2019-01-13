@@ -22,6 +22,6 @@
     "node": ">=8.9.3"
   },
   "dependencies": {
-    "https_connection_binder": "^1.1.0"
+    "https_connection_binder": "^1.0.3"
   }
 }
