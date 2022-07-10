@@ -1,4 +1,8 @@
+!gitignore
+**/node_modules/**
 utilities.code-workspace
 luisbinder/luisbinder.code-workspace
 qnamakerbinder/qnamakerbinder.code-workspace
 NodeSubsystems.code-workspace
+luisbinder/package-lock.json
+qnamakerbinder/package-lock.json
