@@ -1,6 +1,6 @@
 {
   "name": "azure_luis_binder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "LUIS binder component",
   "author": "Monojit Datta",
   "license": "MIT",

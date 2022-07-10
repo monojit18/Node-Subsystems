@@ -100,7 +100,14 @@ class CMPHttpConnectionProxy
     deleteAsync(responseCallback)
     {
 
-       this.httpConnection.deleteAsync(responseCallback);
+        this.httpConnection.deleteAsync(responseCallback);
+
+    }
+
+    getByteArrayAsync(urlString, responseCallback)
+    {
+        
+        this.httpConnection.getByteArrayAsync(urlString, responseCallback);
 
     }
 

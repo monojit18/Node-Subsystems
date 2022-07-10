@@ -42,9 +42,11 @@ const LUISURLs =
     KTrainApplication : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/train",
 
     KEntities : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/entities",
+    KGetEntities : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/entities?skip={3}&take={4}",
     KCompositeEntities : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/compositeentities",
     KListEntities : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/closedlists",
     KHierarchialEntities : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/hierarchicalentities",
+    KGetHierarchialEntities : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/hierarchicalentities?skip={3}&take={4}",
     KRegExEntities : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/regexentities",
     KCompositeChildEntities : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/compositeentities/{3}/children",
     KHierarchialChildEntities : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/hierarchicalentities/{3}/children",
@@ -72,10 +74,13 @@ const LUISURLs =
     KIntents : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/intents",
     KPrebuiltIntents : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/customprebuiltintents",
     KIntent : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/intents/{3}",
+    KGetIntents : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/intents?skip={3}&take={4}",
     
     KGetPatterns : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/patternrules?skip={3}&take={4}",
     KGetIntentPatterns : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/intents/{3}/patternrules",    
     KModifyPatterns : "https://{0}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{1}/versions/{2}/patternrules",
+
+    KGetPredictions : "https://{0}.api.cognitive.microsoft.com/luis/v2.0/apps/{1}",
 
 
     
@@ -92,15 +97,21 @@ const LUISHeaders =
 const EntityOptions =
 {
 
+    KAddLabels : "addlabels",
+    KDeleteLabel : "deleteLabel",
+    KReviewLabel : "reviewLabel",
+    KTrainApplication : "trainApplication",
     KEntities : "entities",
+    KGetEntities : "getEntities",
     KCompositeEntities : "compositeentities",
     KListEntities : "listentities",
     KHierarchialEntities : "hierarchialentities",
+    KGetHierarchialEntities : "getHierarchialEntities",
     KRegExEntities : "regexentities",
     KCompositeChildEntities : "compositechildentities",
     KHierarchialChildEntities : "hierarchialchildentities",    
     KSubListEntities : "sublistentities",    
-    KEntity : "entity",
+    KEntity : "entity",    
     KCompositeEntity : "compositeentity",
     KListEntity : "listentity",
     KHierarchialEntity : "hierarchialentity",
@@ -123,7 +134,7 @@ const EntityOptions =
     KIntents : "intent",
     KPrebuiltIntents : "prebuiltintent",
     KIntent : "modifyintent",
-    KGetIntent : "getintent",
+    KGetIntents : "getintents",
     KGetAllPrebuiltIntents : "getallprebuiltintents",
 
 
